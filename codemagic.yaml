@@ -10,6 +10,8 @@ workflows:
           echo ${PROVISIONING_PROFILE?} | base64 --decode > "$PROFILES_HOME/$(uuidgen).mobileprovision"
       - name: Add signing certificate
         script: |
+          #!/usr/bin/env bash
+          
           set -e # exit on first failed command
 
           echo ${CERTIFICATE?} | base64 --decode > /tmp/certificate.p12
